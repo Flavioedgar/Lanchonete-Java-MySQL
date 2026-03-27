@@ -27,16 +27,16 @@ public class Servico {
         // Crei o objeto (o ID o banco gera sozinho, passamos 0 aqui)
         Produto p = new Produto(0, nome, valor, quantidade);
         dao.salvar(p);
-        System.out.println("Produto cadastrado no banco!");
+        System.out.println("Produto cadastrado!");
     }
 
     public void listarProdutos() {
         List<Produto> produtos = dao.listarTodos();
         if (produtos.isEmpty()) {
-            System.out.println("\nBanco de dados vazio!");
+            System.out.println("\nNão tem produto cadastrado!");
             return;
         }
-        System.out.println("\n--- Produtos no Banco ---");
+        System.out.println("\n--- Produtos ---");
         for (Produto p : produtos) {
             System.out.println(p);
         }
@@ -48,7 +48,7 @@ public class Servico {
         int id = scanner.nextInt();
         scanner.nextLine();
         dao.deletar(id);
-        System.out.println("Comando de exclusão enviado.");
+        System.out.println("Produto excluido.");
     }
 
     public void venderProduto() {
@@ -69,7 +69,7 @@ public class Servico {
             if (selecionado.vender(qtd)) {
                 // Se vendeu na memória, atualizamos o banco!
                 dao.atualizarEstoque(id, selecionado.getQuantidade());
-                System.out.println("Venda concluída e banco atualizado!");
+                System.out.println("Venda concluída com sucesso!");
             }
         }
     }
