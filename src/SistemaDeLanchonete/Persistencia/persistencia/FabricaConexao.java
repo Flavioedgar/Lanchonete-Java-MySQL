@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class FabricaConexao {
-    private static final String URL = "jdbc:mysql://localhost:3306/cadastro?useSSL=false";
+    private static final String URL = "jdbc:mysql://localhost:3306/lanchonete_db?useSSL=false";
     private static final String USER = "root";
-    private static final String PASS = "Flaviojunior2004@";
+    private static final String PASS = "Sua-senha";
 
     public static Connection getConexao() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
